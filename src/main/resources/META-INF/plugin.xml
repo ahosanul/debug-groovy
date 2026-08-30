@@ -1,0 +1,94 @@
+<!-- Copyright 2024 Arafat Hossain. All rights reserved. -->
+<idea-plugin>
+    <id>com.arafat.grails.debug.assistant</id>
+    <name>Grails Debug Assistant</name>
+    <version>1.0.0</version>
+    <vendor email="arafat@example.com" url="https://github.com/arafat">Arafat Hossain</vendor>
+
+    <description><![CDATA[
+    <h1>Grails Debug Assistant</h1>
+    <p>A powerful debugging tool for Grails developers, inspired by the "Cool Request" plugin.</p>
+    
+    <h2>Features:</h2>
+    <ul>
+        <li><strong>Grails Context Evaluator:</strong> Specialized Groovy evaluation console with Grails artifact awareness</li>
+        <li><strong>Cool Request Endpoint Extractor:</strong> Auto-extract HTTP method, route, and parameters from controller breakpoints</li>
+        <li><strong>GSP & Taglib Quick-Inspect:</strong> Navigate to associated views and taglibs during debug sessions</li>
+        <li><strong>Hot-Script Execution:</strong> Execute ad-hoc Groovy scripts against suspended debug frames</li>
+    </ul>
+    
+    <p>Perfect for Grails developers who want a seamless debugging experience with modern UI/UX.</p>
+    ]]></description>
+
+    <depends>com.intellij.modules.platform</depends>
+    <depends>com.intellij.modules.java</depends>
+    <depends>com.intellij.modules.lang</depends>
+    <depends>org.intellij.groovy</depends>
+    <depends optional="true" config-file="grails-dependencies.xml">org.intellij.grails</depends>
+
+    <!-- Tool Window Registration -->
+    <extensions defaultExtensionNs="com.intellij">
+        <!-- Tool Window Factory -->
+        <toolWindow 
+            id="Grails Debug" 
+            anchor="bottom" 
+            factoryClass="com.arafat.grails.debug.GrailsDebugToolWindowFactory"
+            icon="AllIcons.Debugger.Db_db_view"/>
+        
+        <!-- Debugger Manager Listener -->
+        <debuggerManagerListener 
+            implementation="com.arafat.grails.debug.GrailsDebuggerSessionListener"/>
+        
+        <!-- Editor Provider for Groovy Console -->
+        <fileEditorProvider 
+            implementation="com.arafat.grails.debug.ui.GrailsScriptEditorProvider"/>
+    </extensions>
+
+    <!-- Actions -->
+    <actions>
+        <!-- Main Action Group for Debugger Context Menu -->
+        <group id="com.arafat.grails.debug.DebuggerActions" text="Grails Debug" description="Grails debugging actions">
+            <add-to-group group-id="XDebugger.ValueGroup" anchor="last"/>
+            
+            <!-- Extract to Cool Request Action -->
+            <action 
+                id="com.arafat.grails.debug.ExtractToCoolRequestAction"
+                class="com.arafat.grails.debug.action.ExtractToCoolRequestAction"
+                text="Extract to Cool Request"
+                description="Extract current controller context as HTTP request"
+                icon="AllIcons.Webreferences.Server">
+                <add-to-group group-id="com.arafat.grails.debug.DebuggerActions" anchor="first"/>
+            </action>
+            
+            <!-- Evaluate in Grails Context Action -->
+            <action 
+                id="com.arafat.grails.debug.EvaluateInContextAction"
+                class="com.arafat.grails.debug.action.EvaluateInContextAction"
+                text="Evaluate in Grails Context"
+                description="Evaluate Groovy expression in current Grails context"
+                icon="AllIcons.Debugger.EvalExpression">
+                <add-to-group group-id="com.arafat.grails.debug.DebuggerActions"/>
+            </action>
+            
+            <!-- Navigate to GSP View Action -->
+            <action 
+                id="com.arafat.grails.debug.NavigateToGspAction"
+                class="com.arafat.grails.debug.action.NavigateToGspAction"
+                text="Navigate to GSP View"
+                description="Navigate to associated GSP view"
+                icon="AllIcons.FileTypes.Any_type">
+                <add-to-group group-id="com.arafat.grails.debug.DebuggerActions"/>
+            </action>
+        </group>
+        
+        <!-- Editor Gutter Action for Controllers -->
+        <action 
+            id="com.arafat.grails.debug.ControllerGutterAction"
+            class="com.arafat.grails.debug.action.ControllerGutterAction"
+            text="Build Cool Request"
+            description="Build HTTP request from controller method"
+            icon="AllIcons.Webreferences.Server">
+            <add-to-group group-id="EditorGutter" anchor="last"/>
+        </action>
+    </actions>
+</idea-plugin>
