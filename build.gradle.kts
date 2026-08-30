@@ -17,17 +17,15 @@ repositories {
 dependencies {
     // IntelliJ Platform dependencies
     intellijPlatform {
-        intellijIdeaCommunity("2026.1.4")
+        intellijIdeaCommunity("2024.1")
         
         // Required bundled plugins
-        java()
-        groovy()
-        grails()
+        bundledPlugin("com.intellij.java")
+        bundledPlugin("org.intellij.groovy")
         
         // Plugin development tools
         pluginVerifier()
         zipSigner()
-        instrumentationTools()
     }
     
     // Kotlin standard library
@@ -35,18 +33,17 @@ dependencies {
     implementation(kotlin("reflect"))
     
     // Coroutines for async operations
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.10.1")
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-intellij:1.10.1")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.3")
 }
 
 kotlin {
-    jvmToolchain(21)
+    jvmToolchain(17)
 }
 
 tasks {
     patchPluginXml {
-        sinceBuild.set("261")
-        untilBuild.set("263.*")
+        sinceBuild.set("241")
+        untilBuild.set("243.*")
     }
     
     signPlugin {
