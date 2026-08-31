@@ -220,14 +220,14 @@ class GrailsDebugPanel(private val project: Project) : SimpleToolWindowPanel(tru
         gbc.fill = java.awt.GridBagConstraints.NONE
         gbc.anchor = java.awt.GridBagConstraints.EAST
         
-        val buttonPanel = JPanel(FlowLayout(FlowLayout.RIGHT)).apply {
+        val buttonPanel = JPanel(java.awt.FlowLayout(java.awt.FlowLayout.RIGHT)).apply {
             add(JButton("Copy to Cool Request", AllIcons.Webreferences.Server).apply {
                 toolTipText = "Copy formatted request to clipboard for Cool Request plugin"
                 addActionListener {
                     copyToCoolRequest(methodCombo.selectedItem as String, urlField.text, paramsEditor.text)
                 }
             })
-            add(JButton("Generate cURL", AllIcons.Terminal).apply {
+            add(JButton("Generate cURL", AllIcons.Debugger.Db_mute_breakpoint).apply {
                 addActionListener {
                     generateCurl(methodCombo.selectedItem as String, urlField.text, paramsEditor.text)
                 }
