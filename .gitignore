@@ -1,70 +1,50 @@
 ```
-# IntelliJ Platform
-.intellijPlatform/
+# Compiled and build artifacts
+*.class
+*.jar
+*.war
+*.ear
+*.kotlin_metadata
+*.kotlincache/
 
-# Gradle
+# Dependencies
 .gradle/
 build/
-!gradlew
+target/
 
-# IDE
+# IDE specific
 .idea/
-.vscode/
+*.iml
+*.iws
+*.ipr
 
 # Logs
 *.log
-
-# Temp files
-*.tmp
-*.swp
-*.swo
 
 # Environment
 .env
 .env.local
 *.env.*
 
-# OS
+# OS generated
 .DS_Store
 Thumbs.db
 
-# Dependencies
-node_modules/
-venv/
-.venv/
-__pycache__/
-.mypy_cache/
-.pytest_cache/
-target/
-.julia/
-zig*/
+# Temporary files
+*.tmp
+*.temp
+*.swp
+*.swo
 
-# Coverage
+# Coverage reports
 coverage/
 htmlcov/
-.coverage
+*.coverage
 
-# Compressed files
-*.zip
-*.gz
-*.tar
-*.tgz
-*.bz2
-*.xz
-*.7z
-*.rar
-*.zst
-*.lz4
-*.lzh
-*.cab
-*.arj
-*.rpm
-*.deb
-*.Z
-*.lz
-*.lzo
-*.tar.gz
-*.tar.bz2
-*.tar.xz
-*.tar.zst
+# Python cache (if mixed project)
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
 ```

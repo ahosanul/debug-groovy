@@ -4,11 +4,16 @@
 package com.arafat.grails.debug.ui
 
 import com.intellij.openapi.fileEditor.FileEditor
+import com.intellij.openapi.fileEditor.FileEditorPolicy
 import com.intellij.openapi.fileEditor.FileEditorProvider
 import com.intellij.openapi.fileEditor.FileEditorState
+import com.intellij.openapi.fileEditor.FileEditorStateLevel
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.vfs.VirtualFile
 import org.jdom.Element
+import java.awt.Component
+import java.beans.PropertyChangeListener
+import javax.swing.JPanel
 
 /**
  * File editor provider for Grails script files.
@@ -57,15 +62,16 @@ class GrailsScriptEditor(
 ) : FileEditor {
     
     private var modified = false
-    private val listeners = mutableListOf<FileEditorStateListener>()
+    private val listeners = mutableListOf<(FileEditorStateLevel) -> Unit>()
+    private val userData = mutableMapOf<String, Any?>()
     
-    override fun getComponent(): java.awt.Component {
+    override fun getComponent(): JPanel {
         // Return the main editor component
         // Would contain EditorTextField with Groovy highlighting
-        return javax.swing.JPanel()
+        return JPanel()
     }
     
-    override fun getPreferredFocusedComponent(): java.awt.Component {
+    override fun getPreferredFocusedComponent(): JPanel? {
         return component
     }
     
@@ -75,28 +81,20 @@ class GrailsScriptEditor(
         // Restore editor state
     }
     
-    override fun getState(level: Int): FileEditorState? {
-        return null
+    override fun getState(level: FileEditorStateLevel): FileEditorState {
+        return FileEditorState.INSTANCE
     }
     
     override fun isModified(): Boolean = modified
     
     override fun isValid(): Boolean = file.isValid
     
-    override fun addPropertyChangeListener(listener: java.beans.PropertyChangeListener) {
+    override fun addPropertyChangeListener(listener: PropertyChangeListener) {
         // Add property change listener
     }
     
-    override fun removePropertyChangeListener(listener: java.beans.PropertyChangeListener) {
+    override fun removePropertyChangeListener(listener: PropertyChangeListener) {
         // Remove property change listener
-    }
-    
-    override fun addFileEditorStateListener(listener: FileEditorStateListener) {
-        listeners.add(listener)
-    }
-    
-    override fun removeFileEditorStateListener(listener: FileEditorStateListener) {
-        listeners.remove(listener)
     }
     
     override fun selectNotify() {
@@ -110,6 +108,15 @@ class GrailsScriptEditor(
     override fun dispose() {
         // Clean up resources
         listeners.clear()
+    }
+    
+    override fun <T> getUserData(key: com.intellij.openapi.util.Key<T>): T? {
+        @Suppress("UNCHECKED_CAST")
+        return userData[key.toString()] as T?
+    }
+    
+    override fun <T> putUserData(key: com.intellij.openapi.util.Key<T>, value: T?) {
+        userData[key.toString()] = value
     }
     
     /**
