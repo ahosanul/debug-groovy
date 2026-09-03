@@ -5,6 +5,9 @@
     <version>1.0.0</version>
     <vendor email="arafat@example.com" url="https://github.com/arafat">Arafat Hossain</vendor>
 
+    <!-- Compatibility with IntelliJ IDEA 2024.3 to 2026.1+ -->
+    <idea-version since-build="243" until-build="262.*"/>
+
     <description><![CDATA[
     <h1>Grails Debug Assistant</h1>
     <p>A powerful debugging tool for Grails developers, inspired by the "Cool Request" plugin.</p>

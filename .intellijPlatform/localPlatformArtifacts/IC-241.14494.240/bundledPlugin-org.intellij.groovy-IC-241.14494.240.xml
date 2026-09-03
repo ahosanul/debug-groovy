@@ -4,12 +4,12 @@
     <conf name="default" visibility="public"/>
   </configurations>
   <publications>
-    <artifact name="groovy-constants-rt" ext="jar" conf="default" url="plugins/Groovy/lib"/>
-    <artifact name="groovy-rt-class-loader" ext="jar" conf="default" url="plugins/Groovy/lib"/>
-    <artifact name="groovy-spock-rt" ext="jar" conf="default" url="plugins/Groovy/lib"/>
     <artifact name="groovy-rt" ext="jar" conf="default" url="plugins/Groovy/lib"/>
+    <artifact name="groovy-rt-class-loader" ext="jar" conf="default" url="plugins/Groovy/lib"/>
     <artifact name="groovy-jps" ext="jar" conf="default" url="plugins/Groovy/lib"/>
     <artifact name="Groovy" ext="jar" conf="default" url="plugins/Groovy/lib"/>
+    <artifact name="groovy-constants-rt" ext="jar" conf="default" url="plugins/Groovy/lib"/>
+    <artifact name="groovy-spock-rt" ext="jar" conf="default" url="plugins/Groovy/lib"/>
   </publications>
   <dependencies>
     <dependency org="bundledPlugin" name="com.intellij.properties" rev="IC-241.14494.240"/>
