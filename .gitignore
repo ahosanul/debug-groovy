@@ -1,20 +1,18 @@
 ```
 # Compiled and build artifacts
 *.class
-*.jar
-*.war
-*.ear
 *.o
 *.obj
 *.out
-target/
 build/
+target/
 
 # Dependencies
 .gradle/
 node_modules/
-lib/
-vendor/
+venv/
+.venv/
+__pycache__/
 
 # Logs and temp files
 *.log
@@ -29,9 +27,18 @@ vendor/
 # Editors
 .vscode/
 .idea/
-*.swp
-*.swo
 
-# Testing
-test-results/
+# Coverage reports
+coverage/
+htmlcov/
+.coverage
+
+# Grails specific
+*.war
+*.jar
+work/
+target/
+build/
+.settings/
+bin/
 ```
