@@ -1,0 +1,48 @@
+<idea-plugin>
+    <id>cool.request.grails</id>
+    <name>Cool Request for Grails</name>
+    <version>1.0.0</version>
+    <vendor email="support@coolrequest.dev" url="https://coolrequest.dev">Cool Request</vendor>
+
+    <description><![CDATA[
+    IntelliJ IDEA plugin for testing Grails 2.5.3 controllers and endpoints directly from the IDE.
+    
+    Features:
+    - Tool Window showing all discovered controllers and endpoints
+    - Run icons next to controller methods for quick testing
+    - Parameter input dialog with type detection
+    - HTTP request execution with response viewer
+    - No project configuration required
+    ]]></description>
+
+    <depends>com.intellij.modules.platform</depends>
+    <depends>org.jetbrains.plugins.groovy</depends>
+    <depends>com.intellij.modules.java</depends>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <!-- Tool Window -->
+        <toolWindow id="Cool Request" 
+                    anchor="right" 
+                    icon="/icons/cool-request.svg"
+                    factoryClass="cool.request.intellij.toolwindow.CoolRequestToolWindowFactory"/>
+
+        <!-- Gutter Icons for Controllers -->
+        <codeInsight.lineMarkerProvider language="Groovy"
+                                        implementationClass="cool.request.intellij.gutter.GrailsControllerLineMarkerProvider"/>
+        
+        <codeInsight.lineMarkerProvider language="JAVA"
+                                        implementationClass="cool.request.intellij.gutter.JavaControllerLineMarkerProvider"/>
+
+        <!-- Application Service -->
+        <applicationService serviceImplementation="cool.request.intellij.service.CoolRequestService"/>
+    </extensions>
+
+    <actions>
+        <action id="cool.request.RunEndpoint"
+                class="cool.request.intellij.action.RunEndpointAction"
+                text="Run Endpoint"
+                description="Run Grails endpoint with parameters">
+            <add-to-group group-id="EditorPopupMenu" anchor="last"/>
+        </action>
+    </actions>
+</idea-plugin>
