@@ -7,7 +7,7 @@
     
     <!-- Stylesheets -->
     <g:javascript library="jquery"/>
-    <link rel="stylesheet" href="${resource(dir: 'css/cool-request', file: 'style.css')}"/>
+    <link rel="stylesheet" href="${resource(dir: 'css/cool-request', file: 'styles.css')}"/>
     
     <style>
         /* Inline critical CSS for faster initial load */

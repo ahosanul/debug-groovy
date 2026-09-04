@@ -9,28 +9,29 @@ target/
 
 # Dependencies
 .gradle/
+node_modules/
 lib/
-libs/
 
 # Logs and temp files
 *.log
 *.tmp
 *.swp
 
+# Editors
+.vscode/
+.idea/
+
 # Environment
 .env
 .env.local
 *.env.*
 
-# Editors
-.vscode/
-.idea/
-*.swp
-*.swo
+# Coverage reports
+coverage/
+htmlcov/
+*.coverage
 
-# System files
+# OS generated files
 .DS_Store
 Thumbs.db
-
-# Original rules preserved
 ```
