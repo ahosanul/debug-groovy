@@ -8,32 +8,14 @@
 __pycache__/
 *.o
 *.obj
-*.so
-*.dll
 *.exe
+*.dll
+*.so
+*.a
 *.out
-target/
-build/
-dist/
-*.pyc
-*.pyo
-*.pyd
-*.class
-*.jar
-*.war
-*.ear
-*.swp
-*.swo
-*.tmp
 
 # Dependencies
-lib/
-node_modules/
-venv/
-.venv/
-.gradle/
-.mypy_cache/
-.pytest_cache/
+target/
 
 # IDE specific
 .idea/
@@ -47,42 +29,43 @@ venv/
 
 # Logs
 *.log
-logs/
-log/
+*.tmp
 
 # Environment files
 .env
 .env.local
 *.env.*
 
-# OS generated
-.DS_Store
-Thumbs.db
+# Editors
+.idea/
 *.swp
 *.swo
+
+# System files
+.DS_Store
+Thumbs.db
 
 # Coverage reports
 coverage/
 htmlcov/
 .coverage
 
-# Archives
-*.zip
-*.gz
-*.tar
-*.tgz
-*.bz2
-*.xz
-*.7z
-*.rar
-*.zst
-*.lz4
-*.lzh
-*.cab
-*.arj
-*.rpm
-*.deb
-*.Z
-*.lz
-*.lzo
+# Gradle
+.gradle/
+
+# MyPy cache
+.mypy_cache/
+
+# PyTest cache
+.pytest_cache/
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Virtual environments
+venv/
+.venv/
 ```
