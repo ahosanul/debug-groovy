@@ -5,162 +5,81 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>cool.request</groupId>
-    <artifactId>cool-request-grails</artifactId>
-    <version>0.1.0</version>
+    <artifactId>cool-request-intellij</artifactId>
+    <version>1.0.0</version>
     <packaging>jar</packaging>
 
-    <name>Cool Request for Grails</name>
-    <description>A developer-focused API inspection, testing, and debugging tool for Grails 2.5.3 applications</description>
+    <name>Cool Request for Grails - IntelliJ Plugin</name>
+    <description>IntelliJ IDEA plugin for testing Grails 2.5.3 endpoints directly from the IDE</description>
 
     <properties>
+        <maven.compiler.source>11</maven.compiler.source>
+        <maven.compiler.target>11</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <grails.version>2.5.3</grails.version>
-        <groovy.version>2.4.3</groovy.version>
-        <spring.version>4.1.9.RELEASE</spring.version>
+        <intellij.version>2022.3</intellij.version>
     </properties>
 
     <repositories>
         <repository>
-            <id>grails-core</id>
-            <url>https://repo.grails.org/grails/core</url>
+            <id>jetbrains-releases</id>
+            <url>https://www.jetbrains.com/intellij-repository/releases</url>
         </repository>
         <repository>
-            <id>maven-central</id>
-            <url>https://repo.maven.apache.org/maven2</url>
+            <id>jetbrains-third-party</id>
+            <url>https://www.jetbrains.com/intellij-repository/third-party</url>
         </repository>
     </repositories>
 
     <dependencies>
-        <!-- Grails 2.5.3 Core Dependencies -->
+        <!-- IntelliJ Platform Dependencies -->
         <dependency>
-            <groupId>org.grails</groupId>
-            <artifactId>grails-core</artifactId>
-            <version>${grails.version}</version>
+            <groupId>com.jetbrains.intellij.platform</groupId>
+            <artifactId>platform-core</artifactId>
+            <version>${intellij.version}</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.jetbrains.intellij.platform</groupId>
+            <artifactId>platform-ide</artifactId>
+            <version>${intellij.version}</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.jetbrains.intellij.platform</groupId>
+            <artifactId>lang</artifactId>
+            <version>${intellij.version}</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.jetbrains.intellij.java</groupId>
+            <artifactId>java-api</artifactId>
+            <version>${intellij.version}</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.jetbrains.intellij.groovy</groupId>
+            <artifactId>groovy</artifactId>
+            <version>${intellij.version}</version>
             <scope>provided</scope>
         </dependency>
 
+        <!-- HTTP Client for API calls -->
         <dependency>
-            <groupId>org.grails</groupId>
-            <artifactId>grails-web</artifactId>
-            <version>${grails.version}</version>
-            <scope>provided</scope>
+            <groupId>org.apache.httpcomponents</groupId>
+            <artifactId>httpclient</artifactId>
+            <version>4.5.14</version>
         </dependency>
-
         <dependency>
-            <groupId>org.grails</groupId>
-            <artifactId>grails-plugin-codecs</artifactId>
-            <version>${grails.version}</version>
-            <scope>provided</scope>
-        </dependency>
-
-        <dependency>
-            <groupId>org.grails</groupId>
-            <artifactId>grails-plugin-i18n</artifactId>
-            <version>${grails.version}</version>
-            <scope>provided</scope>
-        </dependency>
-
-        <dependency>
-            <groupId>org.grails</groupId>
-            <artifactId>grails-plugin-filters</artifactId>
-            <version>${grails.version}</version>
-            <scope>provided</scope>
-        </dependency>
-
-        <dependency>
-            <groupId>org.grails</groupId>
-            <artifactId>grails-plugin-gsp</artifactId>
-            <version>${grails.version}</version>
-            <scope>provided</scope>
-        </dependency>
-
-        <dependency>
-            <groupId>org.grails</groupId>
-            <artifactId>grails-plugin-datasource</artifactId>
-            <version>${grails.version}</version>
-            <scope>provided</scope>
-        </dependency>
-
-        <dependency>
-            <groupId>org.grails</groupId>
-            <artifactId>grails-plugin-url-mappings</artifactId>
-            <version>${grails.version}</version>
-            <scope>provided</scope>
-        </dependency>
-
-        <!-- Groovy -->
-        <dependency>
-            <groupId>org.codehaus.groovy</groupId>
-            <artifactId>groovy-all</artifactId>
-            <version>${groovy.version}</version>
-            <scope>provided</scope>
-        </dependency>
-
-        <!-- Spring Framework -->
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-core</artifactId>
-            <version>${spring.version}</version>
-            <scope>provided</scope>
-        </dependency>
-
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-context</artifactId>
-            <version>${spring.version}</version>
-            <scope>provided</scope>
-        </dependency>
-
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-web</artifactId>
-            <version>${spring.version}</version>
-            <scope>provided</scope>
-        </dependency>
-
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-webmvc</artifactId>
-            <version>${spring.version}</version>
-            <scope>provided</scope>
-        </dependency>
-
-        <!-- AspectJ Weaver - Required by Grails 2.5.3 -->
-        <dependency>
-            <groupId>org.aspectj</groupId>
-            <artifactId>aspectjweaver</artifactId>
-            <version>1.8.4</version>
-            <scope>provided</scope>
-        </dependency>
-
-        <!-- CGLIB - Required by Grails 2.5.3 -->
-        <dependency>
-            <groupId>cglib</groupId>
-            <artifactId>cglib-nodep</artifactId>
-            <version>2.2.2</version>
-            <scope>provided</scope>
-        </dependency>
-
-        <!-- Servlet API -->
-        <dependency>
-            <groupId>javax.servlet</groupId>
-            <artifactId>servlet-api</artifactId>
-            <version>2.5</version>
-            <scope>provided</scope>
+            <groupId>com.google.code.gson</groupId>
+            <artifactId>gson</artifactId>
+            <version>2.10.1</version>
         </dependency>
 
         <!-- Testing -->
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
-            <version>4.12</version>
-            <scope>test</scope>
-        </dependency>
-
-        <dependency>
-            <groupId>org.spockframework</groupId>
-            <artifactId>spock-core</artifactId>
-            <version>0.7-groovy-2.0</version>
+            <version>4.13.2</version>
             <scope>test</scope>
         </dependency>
     </dependencies>
@@ -170,34 +89,16 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.1</version>
+                <version>3.11.0</version>
                 <configuration>
-                    <source>1.7</source>
-                    <target>1.7</target>
+                    <source>11</source>
+                    <target>11</target>
                 </configuration>
             </plugin>
-
-            <plugin>
-                <groupId>org.codehaus.gmavenplus</groupId>
-                <artifactId>gmavenplus-plugin</artifactId>
-                <version>1.5</version>
-                <configuration>
-                    <groovyVersion>${groovy.version}</groovyVersion>
-                </configuration>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>compile</goal>
-                            <goal>testCompile</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-jar-plugin</artifactId>
-                <version>2.6</version>
+                <version>3.3.0</version>
             </plugin>
         </plugins>
     </build>
