@@ -1,6 +1,11 @@
 ```
 # Compiled and build artifacts
 *.class
+*.jar
+*.war
+*.ear
+*.pyc
+__pycache__/
 *.o
 *.obj
 *.exe
@@ -12,11 +17,21 @@
 # Dependencies
 target/
 
-# Logs and temp files
+# IDE specific
+.idea/
+.vscode/
+*.iml
+*.ipr
+*.iws
+.classpath
+.project
+.settings/
+
+# Logs
 *.log
 *.tmp
 
-# Environment
+# Environment files
 .env
 .env.local
 *.env.*

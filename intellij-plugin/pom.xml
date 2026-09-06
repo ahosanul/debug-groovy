@@ -10,77 +10,53 @@
     <packaging>jar</packaging>
 
     <name>Cool Request for Grails - IntelliJ Plugin</name>
-    <description>IntelliJ IDEA plugin for testing Grails 2.5.3 endpoints directly from the IDE</description>
+    <description>IntelliJ IDEA plugin for testing Grails 2.5.3 controllers and endpoints directly from the IDE</description>
 
     <properties>
-        <maven.compiler.source>11</maven.compiler.source>
-        <maven.compiler.target>11</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <intellij.version>2022.3</intellij.version>
+        <idea.version>2022.3</idea.version>
     </properties>
 
-    <repositories>
-        <repository>
-            <id>jetbrains-releases</id>
-            <url>https://www.jetbrains.com/intellij-repository/releases</url>
-        </repository>
-        <repository>
-            <id>jetbrains-third-party</id>
-            <url>https://www.jetbrains.com/intellij-repository/third-party</url>
-        </repository>
-    </repositories>
-
     <dependencies>
-        <!-- IntelliJ Platform Dependencies -->
         <dependency>
             <groupId>com.jetbrains.intellij.platform</groupId>
             <artifactId>platform-core</artifactId>
-            <version>${intellij.version}</version>
+            <version>${idea.version}</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>com.jetbrains.intellij.platform</groupId>
             <artifactId>platform-ide</artifactId>
-            <version>${intellij.version}</version>
+            <version>${idea.version}</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>com.jetbrains.intellij.platform</groupId>
             <artifactId>lang</artifactId>
-            <version>${intellij.version}</version>
+            <version>${idea.version}</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>com.jetbrains.intellij.java</groupId>
             <artifactId>java-api</artifactId>
-            <version>${intellij.version}</version>
+            <version>${idea.version}</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>com.jetbrains.intellij.groovy</groupId>
             <artifactId>groovy</artifactId>
-            <version>${intellij.version}</version>
+            <version>${idea.version}</version>
             <scope>provided</scope>
-        </dependency>
-
-        <!-- HTTP Client for API calls -->
-        <dependency>
-            <groupId>org.apache.httpcomponents</groupId>
-            <artifactId>httpclient</artifactId>
-            <version>4.5.14</version>
         </dependency>
         <dependency>
             <groupId>com.google.code.gson</groupId>
             <artifactId>gson</artifactId>
             <version>2.10.1</version>
         </dependency>
-
-        <!-- Testing -->
         <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>4.13.2</version>
-            <scope>test</scope>
+            <groupId>org.apache.httpcomponents</groupId>
+            <artifactId>httpclient</artifactId>
+            <version>4.5.14</version>
         </dependency>
     </dependencies>
 
@@ -96,9 +72,9 @@
                 </configuration>
             </plugin>
             <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-jar-plugin</artifactId>
-                <version>3.3.0</version>
+                <groupId>org.jetbrains.intellij.plugins</groupId>
+                <artifactId>intellij-platform-gradle-plugin</artifactId>
+                <version>2.0.1</version>
             </plugin>
         </plugins>
     </build>
