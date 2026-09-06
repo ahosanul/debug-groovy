@@ -1,271 +1,190 @@
-# Cool Request for Grails
+# Cool Request for Grails - IntelliJ Plugin
 
-A developer-focused API inspection, testing, debugging, and automation tool for **Grails 2.5.3 applications**.
+An IntelliJ IDEA plugin that provides a developer tool window and gutter icons for testing Grails 2.5.3 controllers and endpoints directly from the IDE, **without requiring any project configuration or changes**.
 
-## Overview
+## 🎯 Key Features
 
-Cool Request for Grails is a reusable plugin that provides a browser-based developer UI for inspecting and testing your Grails application's APIs. It automatically discovers controllers, actions, URL mappings, and more, making it easy to test APIs without manually creating Postman collections or writing test code.
+### ✅ Tool Window
+- **View → Tool Windows → Cool Request** opens a dedicated panel on the right side of the IDE
+- Automatically discovers and displays all Grails controllers and endpoints
+- Click any endpoint to auto-populate the request editor
+- Execute HTTP requests and view responses without leaving IntelliJ
 
-## Features
+### ✅ Gutter Run Icons
+- Green run icons (▶) appear next to controller methods in the editor gutter
+- Click to open a parameter dialog pre-filled with method signature info
+- Enter parameter values and execute requests instantly
 
-### Automatic Discovery
-- **Controllers & Actions**: Automatically discovers all Grails controllers and their actions
-- **URL Mappings**: Inspects and displays all URL mappings with HTTP methods
-- **Parameters**: Extracts action method signatures including parameter names and types
-- **Command Objects**: Detects and displays Grails command objects
-- **Domain Classes**: Shows domain class metadata for reference
-- **Jobs**: Discovers Grails/Quartz scheduled jobs
+### ✅ Context Menu Actions
+- Right-click any controller method → **"Run Grails Endpoint"**
+- Dialog opens with inferred URL, HTTP method, and parameters
 
-### API Testing
-- **HTTP Methods**: Support for GET, POST, PUT, DELETE, PATCH, HEAD, OPTIONS
-- **Request Editor**: Full-featured editor for URLs, parameters, headers, and body
-- **Response Viewer**: Intelligent response formatting (JSON, XML, HTML, text, binary)
-- **Response Metadata**: Status codes, execution time, response size, headers
+### ✅ Zero Configuration
+- **No changes to your Grails project**
+- **No plugins to install in your Grails application**
+- Works immediately when your Grails app is running
+- Discovers endpoints via reflection and URL mapping analysis
 
-### Developer Tools
-- **cURL Export**: Generate cURL commands from any request
-- **OpenAPI Export**: Generate OpenAPI 3.0 specifications from discovered endpoints
-- **Request History**: Store and replay recent requests
-- **Saved Requests**: Organize frequently used requests into collections
-- **Environment Variables**: Manage variables across different environments
-- **Pre/Post Scripts**: Execute Groovy scripts before/after requests
+## 📋 Requirements
 
-### Security
-- **Environment Protection**: Disabled by default in production
-- **Access Control**: Optional authentication and IP allowlisting
-- **Sensitive Data**: Does not log passwords, tokens, or API keys by default
+- IntelliJ IDEA 2022.3 or later
+- Groovy plugin (bundled with IntelliJ)
+- Java 11 or later
+- Running Grails 2.5.3+ application
 
-## Installation
+## 🚀 Installation
 
-### Step 1: Build the Plugin
-
+### Build from Source
 ```bash
-cd cool-request-grails
-grails package-plugin
+mvn clean package
 ```
 
-This creates a plugin ZIP file in the `target/` directory.
+### Install Plugin
+1. In IntelliJ: **Settings → Plugins → ⚙️ → Install Plugin from Disk**
+2. Select the JAR file from `target/` directory
+3. Restart IntelliJ
 
-### Step 2: Install into Your Grails Application
+## 📖 Usage
 
-In your Grails 2.5.3 application directory:
+### Method 1: Tool Window (Recommended)
+1. Start your Grails app: `grails run-app`
+2. Open IntelliJ with your Grails project
+3. Go to **View → Tool Windows → Cool Request**
+4. Browse controllers and endpoints in the tree view
+5. Click an endpoint to auto-fill the request editor
+6. Modify parameters/headers/body as needed
+7. Click **Send** and view the response
 
-```bash
-grails install-plugin /path/to/cool-request-grails-0.1.zip
-```
+### Method 2: Gutter Icons
+1. Open any Grails controller (e.g., `UserController.groovy`)
+2. Look for green ▶ icons next to methods
+3. Click the icon → parameter dialog opens
+4. Enter values → **Send Request**
+5. View response in the dialog
 
-Or add to `BuildConfig.groovy`:
+### Method 3: Context Menu
+1. Right-click a controller method
+2. Select **Run Grails Endpoint**
+3. Configure and execute the request
 
-```groovy
-grails.project.dependency.resolution = {
-    plugins {
-        compile ':cool-request:0.1'
-    }
-}
-```
-
-### Step 3: Run Your Application
-
-```bash
-grails run-app
-```
-
-### Step 4: Access Cool Request
-
-Open your browser and navigate to:
-
-```
-http://localhost:8080/your-app/cool-request
-```
-
-## Configuration
-
-Add the following to `Config.groovy`:
-
-```groovy
-environments {
-    development {
-        coolRequest {
-            enabled = true
-            path = '/cool-request'
-            allowProduction = false
-            enableJobExecution = true
-            enableScripts = true
-            enableDirectInvocation = true
-            enableBeanInspection = false
-            maxHistory = 100
-            responseMaxSize = 10 * 1024 * 1024 // 10MB
-        }
-    }
-    
-    test {
-        coolRequest {
-            enabled = true
-            allowProduction = false
-        }
-    }
-    
-    production {
-        coolRequest {
-            enabled = false  // DISABLED by default!
-            allowProduction = false
-        }
-    }
-}
-```
-
-### Configuration Options
-
-| Option | Default | Description |
-|--------|---------|-------------|
-| `enabled` | `true` (dev), `false` (prod) | Enable/disable the plugin |
-| `path` | `/cool-request` | URL path to access the UI |
-| `allowProduction` | `false` | Allow running in production environment |
-| `enableJobExecution` | `true` | Allow manual job execution |
-| `enableScripts` | `true` | Allow pre/post request scripts |
-| `enableDirectInvocation` | `true` | Allow direct controller action invocation |
-| `enableBeanInspection` | `false` | Allow Spring bean inspection |
-| `maxHistory` | `100` | Maximum number of history entries |
-| `responseMaxSize` | `10MB` | Maximum response size to display |
-
-## Usage
-
-### Browsing Controllers
-
-1. Open `/cool-request` in your browser
-2. The left sidebar shows all discovered controllers
-3. Expand a controller to see its actions
-4. Click an action to load it in the request editor
-
-### Testing an API
-
-1. Select an endpoint from the controller tree
-2. Modify parameters, headers, or body as needed
-3. Click **Send Request** (or press Ctrl+Enter)
-4. View the response in the bottom panel
-
-### Using Environment Variables
-
-1. Select an environment from the dropdown (Development, Test, etc.)
-2. Use variables in URLs like `{{baseUrl}}/api/users/{{userId}}`
-3. Define variables in the environment settings
-
-### Exporting to cURL
-
-1. After configuring a request, click **Copy as cURL**
-2. Paste into your terminal to reproduce the request
-
-### Generating OpenAPI Specification
-
-1. Click **Export OpenAPI** in the header
-2. Download the generated `openapi.json` file
-3. Import into Swagger UI, Postman, or other tools
-
-## Keyboard Shortcuts
-
-| Shortcut | Action |
-|----------|--------|
-| `Ctrl+Enter` | Send request |
-| `Ctrl+S` | Save request |
-| `Ctrl+K` | Focus search |
-| `Ctrl+/` | Format JSON |
-
-## Security Considerations
-
-⚠️ **IMPORTANT**: This plugin exposes powerful debugging capabilities:
-
-1. **Never enable in production** without explicit security measures
-2. The plugin can execute arbitrary controller actions
-3. Job execution can trigger business logic
-4. Script execution allows running Groovy code
-
-### Recommended Security Settings
-
-```groovy
-// Config.groovy
-coolRequest {
-    // Disable in production
-    enabled = (grails.util.Environment.current != grails.util.Environment.PRODUCTION)
-    
-    // Or use IP allowlist
-    allowedIPs = ['127.0.0.1', '192.168.1.0/24']
-    
-    // Require authentication token
-    authToken = 'your-secure-random-token'
-}
-```
-
-## Troubleshooting
-
-### Plugin Not Loading
-
-Ensure you're running Grails 2.5.3:
-
-```bash
-grails --version
-```
-
-### No Controllers Discovered
-
-- Make sure your application is fully compiled
-- Click the **Refresh** button in the UI
-- Check that controllers follow Grails naming conventions (*Controller suffix)
-
-### Request Execution Fails
-
-- Verify the URL is correct
-- Check for authentication requirements
-- Review application logs for errors
-
-### CSS/JS Not Loading
-
-Clear browser cache or force refresh (Ctrl+F5).
-
-## Architecture
+## 🔧 How It Works
 
 ```
-cool-request-grails/
-├── grails-app/
-│   ├── controllers/
-│   │   └── CoolRequestController.groovy
-│   ├── services/
-│   │   ├── ControllerDiscoveryService.groovy
-│   │   ├── UrlMappingDiscoveryService.groovy
-│   │   ├── ParameterDiscoveryService.groovy
-│   │   ├── RequestExecutionService.groovy
-│   │   └── ...
-│   └── views/
-│       └── coolRequest/
-│           └── index.gsp
-├── src/groovy/cool/request/
-│   ├── discovery/
+┌─────────────────────┐
+│   IntelliJ Plugin   │
+│  (This Plugin)      │
+└──────────┬──────────┘
+           │ HTTP Requests
+           ↓
+┌─────────────────────┐
+│  Grails Application │
+│  (Running locally)  │
+└──────────┬──────────┘
+           │ Reflection & Analysis
+           ↓
+┌─────────────────────┐
+│  Controller Discovery│
+│  URL Mapping Parse  │
+│  Request Execution  │
+└─────────────────────┘
+```
+
+The plugin intelligently analyzes your running Grails application to discover:
+- All controllers and their actions
+- URL mappings and HTTP methods
+- Method parameters and types
+- Command objects and domain classes
+
+Then it constructs and executes real HTTP requests against your endpoints.
+
+## 🛠️ Configuration
+
+**Defaults:**
+- Base URL: `http://localhost:8080`
+- API Path: Auto-detected
+
+**No configuration needed** - the plugin works out of the box!
+
+## 🐛 Troubleshooting
+
+### "API Not Available" Error
+- ✅ Ensure Grails app is running: `grails run-app`
+- ✅ Verify app runs on port 8080 (default)
+- ✅ Check firewall isn't blocking localhost
+
+### No Gutter Icons
+- ✅ File must be a Grails controller (name ends with `Controller`)
+- ✅ Groovy plugin must be enabled
+- ✅ Try: **File → Invalidate Caches / Restart**
+
+### Tool Window Shows Empty Tree
+- ✅ Confirm Grails app is running
+- ✅ Check IntelliJ Event Log for errors
+- ✅ Verify `/cool-request/api/controllers` returns JSON
+
+## 🏗️ Project Structure
+
+```
+workspace/
+├── pom.xml                          # Maven build config
+├── README.md                        # This file
+├── src/main/java/cool/request/intellij/
+│   ├── action/
+│   │   └── RunEndpointAction.java   # Context menu action
+│   ├── gutter/
+│   │   ├── GrailsControllerLineMarkerProvider.java
+│   │   └── JavaControllerLineMarkerProvider.java
 │   ├── model/
-│   ├── export/
-│   └── util/
-├── web-app/
-│   ├── js/cool-request/
-│   │   └── app.js
-│   └── css/cool-request/
-│       └── styles.css
-└── test/
-    └── unit/cool/request/
+│   │   ├── ControllerMetadata.java
+│   │   ├── ActionMetadata.java
+│   │   ├── EndpointMetadata.java
+│   │   └── ParameterMetadata.java
+│   ├── service/
+│   │   └── CoolRequestService.java  # Core business logic
+│   ├── toolwindow/
+│   │   └── CoolRequestToolWindowFactory.java
+│   └── ui/
+│       ├── CoolRequestPanel.java    # Tool window UI
+│       └── EndpointDialog.java      # Parameter dialog
+└── src/main/resources/
+    ├── META-INF/
+    │   └── plugin.xml               # Plugin descriptor
+    └── icons/                       # Plugin icons
 ```
 
-## Compatibility
+## 🔨 Development
 
-- **Grails**: 2.5.3
-- **Java**: 7 or 8
-- **Groovy**: 2.4.x (bundled with Grails 2.5.3)
-- **Browsers**: Modern browsers (Chrome, Firefox, Safari, Edge)
+### Build
+```bash
+mvn clean package
+```
 
-## License
+### Run Sandbox IDE
+```bash
+mvn org.jetbrains.intellij.plugins:prepare-sandbox
+mvn org.jetbrains.intellij.plugins:run-ide
+```
 
-MIT License - See LICENSE file for details.
+### Debug
+1. Create Gradle run configuration with `runIde` task
+2. Set breakpoints in plugin code
+3. Launch sandbox IntelliJ instance
 
-## Contributing
+## 📦 Future Enhancements
 
-Contributions are welcome! Please ensure compatibility with Grails 2.5.3.
+- [ ] Settings UI for custom base URLs
+- [ ] Request history and collections
+- [ ] Environment variables support
+- [ ] cURL export
+- [ ] Syntax-highlighted response viewer
+- [ ] Direct URL mapping parsing from UrlMappings.groovy
+- [ ] Integration with IntelliJ HTTP Client
+- [ ] Command object parameter support
 
-## Support
+## 📄 License
 
-For issues and feature requests, please open a GitHub issue.
+MIT License
+
+## 💬 Support
+
+Open an issue on the project repository for bugs or feature requests.
