@@ -38,15 +38,21 @@
         </dependency>
         <dependency>
             <groupId>com.jetbrains.intellij.java</groupId>
-            <artifactId>java-api</artifactId>
+            <artifactId>java</artifactId>
             <version>${idea.version}</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>com.jetbrains.intellij.groovy</groupId>
-            <artifactId>groovy</artifactId>
+            <artifactId>groovy-constants-rt</artifactId>
             <version>${idea.version}</version>
             <scope>provided</scope>
+            <exclusions>
+                <exclusion>
+                    <groupId>com.jetbrains.intellij.remoteDev</groupId>
+                    <artifactId>remote-dev-util</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
         <dependency>
             <groupId>com.google.code.gson</groupId>
