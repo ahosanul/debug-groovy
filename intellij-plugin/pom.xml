@@ -14,25 +14,25 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <idea.version>2022.3</idea.version>
+        <idea.version>232.4652</idea.version>
     </properties>
 
     <dependencies>
         <dependency>
             <groupId>com.jetbrains.intellij.platform</groupId>
-            <artifactId>platform-core</artifactId>
+            <artifactId>core</artifactId>
             <version>${idea.version}</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>com.jetbrains.intellij.platform</groupId>
-            <artifactId>platform-ide</artifactId>
+            <artifactId>ide</artifactId>
             <version>${idea.version}</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>com.jetbrains.intellij.platform</groupId>
-            <artifactId>lang</artifactId>
+            <artifactId>lang-core</artifactId>
             <version>${idea.version}</version>
             <scope>provided</scope>
         </dependency>
@@ -85,8 +85,8 @@
             <url>https://repo.maven.apache.org/maven2</url>
         </repository>
         <repository>
-            <id>jetbrains-marketplace</id>
-            <url>https://www.jetbrains.com/intellij-repository/releases</url>
+            <id>jetbrains-intellij-dependencies</id>
+            <url>https://packages.jetbrains.team/maven/p/ij/intellij-dependencies</url>
         </repository>
     </repositories>
 </project>
