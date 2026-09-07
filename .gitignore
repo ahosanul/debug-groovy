@@ -1,19 +1,12 @@
 ```
 # Dependencies
 target/
-.m2/
-.gradle/
 
-# Logs and temp files
-*.log
-*.tmp
+# IDE
+.idea/
 
 # Environment
 .env
 .env.local
 *.env.*
-
-# Editors
-.vscode/
-.idea/
 ```
