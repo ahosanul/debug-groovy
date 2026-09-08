@@ -1,0 +1,42 @@
+plugins {
+    id 'java'
+    id 'org.jetbrains.intellij.platform' version '2.0.1'
+}
+
+group = 'cool.request'
+version = '1.0.0'
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_11
+    targetCompatibility = JavaVersion.VERSION_11
+}
+
+repositories {
+    mavenCentral()
+    intellijPlatform {
+        defaultRepositories()
+    }
+}
+
+dependencies {
+    intellijPlatform {
+        intellijIdeaCommunity '2022.3'
+        bundledPlugin 'com.intellij.java'
+        bundledPlugin 'org.intellij.groovy'
+        instrumentationTools()
+    }
+    
+    implementation 'com.google.code.gson:gson:2.10.1'
+    implementation 'org.apache.httpcomponents:httpclient:4.5.14'
+}
+
+intellijPlatform {
+    pluginConfiguration {
+        name = 'Cool Request for Grails'
+        description = 'IntelliJ IDEA plugin for testing Grails 2.5.3 endpoints directly from the IDE'
+    }
+}
+
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+}
