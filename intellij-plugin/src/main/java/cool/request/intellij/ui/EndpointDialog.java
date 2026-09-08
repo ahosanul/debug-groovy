@@ -212,7 +212,7 @@ public class EndpointDialog extends DialogWrapper {
         String body = bodyArea.getText();
         
         if (url.isEmpty()) {
-            JOptionPane.showMessageDialog(this, "Please enter a URL");
+            JOptionPane.showMessageDialog(getRootPane(), "Please enter a URL");
             return;
         }
         
