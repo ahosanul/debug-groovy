@@ -1,0 +1,10 @@
+<ivy-module version="2.0">
+  <info organisation="bundledPlugin" module="XPathView" revision="223.7571.182+194"/>
+  <configurations>
+    <conf name="default" visibility="public"/>
+  </configurations>
+  <publications>
+    <artifact name="/root/.gradle/caches/transforms-3/48cd2c5ac487760b6e95761c8ba05a87/transformed/ideaIC-2022.3/plugins/xpath" type="directory" conf="default"/>
+  </publications>
+  <dependencies/>
+</ivy-module>

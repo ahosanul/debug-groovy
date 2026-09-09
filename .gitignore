@@ -1,74 +1,24 @@
-```gitignore
-# IntelliJ IDEA
+```
+# Dependencies
+target/
+.m2/
+.gradle/
+
+# Logs and temp files
+*.log
+*.tmp
+
+# Environment
+.env
+.env.local
+*.env.*
+
+# Editors
+.vscode/
 .idea/
 
-# Gradle
-.gradle/
-build/
-!build.gradle
-!gradle.properties
-!settings.gradle
-
-# Compiled Java classes
+# Build artifacts
 *.class
-
-# JAR files
 *.jar
-
-# ZIP distributions
-*.zip
-
-# IDE sandbox
-**/idea-sandbox/
-
-# Local platform artifacts
-**/.intellijPlatform/
-
-# Gradle wrapper
-gradle/wrapper/
-
-# Temporary files
-*.tmp
-*.swp
-
-# Lock files
-**/*.lock
-
-# Log files
-*.log
-
-# Cache directories
-**/.cache/
-**/caches/
-
-# Index files
-**/index/
-
-# Plugin metadata
-**/plugins/
-
-# System directories
-**/system/
-
-# Instrumented code
-**/instrumented/
-
-# Reports
-**/reports/
-
-# Temporary build files
-**/tmp/
-
-# Resource files in build
-**/resources/main/META-INF/plugin.xml
-**/resources/test/META-INF/plugin.xml
-
-# Icons in build
-**/icons/
-
-# Searchable options
-**/searchableOptions/
-
-# Metadata files
-**/localPlatformArtifacts/
+*.war
 ```

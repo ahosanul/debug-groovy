@@ -22,11 +22,15 @@
     <repositories>
         <repository>
             <id>jetbrains-releases</id>
-            <url>https://www.jetbrains.com/intellij-repository/releases</url>
+            <url>https://cache-redirector.jetbrains.com/intellij-dependencies</url>
         </repository>
         <repository>
             <id>jetbrains-third-party</id>
-            <url>https://www.jetbrains.com/intellij-repository/third-party</url>
+            <url>https://cache-redirector.jetbrains.com/intellij-third-party-dependencies</url>
+        </repository>
+        <repository>
+            <id>central</id>
+            <url>https://repo.maven.apache.org/maven2</url>
         </repository>
     </repositories>
 
