@@ -1,5 +1,5 @@
 <idea-plugin>
-  <idea-version since-build="241.14494" until-build="241.*" />
+  <idea-version since-build="261.26222" until-build="261.*" />
   <id>cool.request.grails</id>
   <name>Cool Request for Grails</name>
   <version>1.0.0</version>

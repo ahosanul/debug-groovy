@@ -1,0 +1,22 @@
+<ivy-module version="2.0">
+  <info organisation="bundledPlugin" module="org.intellij.groovy" revision="2026.1.4+766"/>
+  <configurations>
+    <conf name="default" visibility="public"/>
+  </configurations>
+  <publications>
+    <artifact name="/root/.gradle/caches/transforms-3/ea89acf81b65d42ebad1656b0b53d438/transformed/ideaIU-2026.1.4/plugins/Groovy" type="directory" conf="default"/>
+  </publications>
+  <dependencies>
+    <dependency org="bundledPlugin" name="JUnit" rev="261.26222.65+538"/>
+    <dependency org="bundledPlugin" name="com.intellij.properties" rev="261.26222.65+731"/>
+    <dependency org="bundledPlugin" name="com.intellij.modules.ultimate" rev="261.26222.65+623"/>
+    <dependency org="bundledPlugin" name="Git4Idea" rev="261.26222.65+315"/>
+    <dependency org="bundledModule" name="intellij.java.backend" rev="261.26222.65+710"/>
+    <dependency org="bundledModule" name="intellij.spellchecker" rev="261.26222.65+710"/>
+    <dependency org="bundledModule" name="intellij.java.unscramble" rev="261.26222.65+710"/>
+    <dependency org="bundledModule" name="intellij.properties.backend" rev="261.26222.65+710"/>
+    <dependency org="bundledModule" name="intellij.properties.backend.psi" rev="261.26222.65+710"/>
+    <dependency org="bundledModule" name="intellij.regexp" rev="261.26222.65+710"/>
+    <dependency org="bundledModule" name="intellij.platform.duplicatesDetector" rev="261.26222.65+710"/>
+  </dependencies>
+</ivy-module>
