@@ -1,74 +1,70 @@
-```gitignore
-# IntelliJ IDEA
+```
+# IntelliJ IDEA specific files
+.intellijPlatform/
 .idea/
+
+# Build and sandbox directories
+build/
 
 # Gradle
 .gradle/
-build/
-!build.gradle
-!gradle.properties
-!settings.gradle
+!gradle/wrapper/gradle-wrapper.jar
+
+# Log files
+*.log
+
+# Temporary files
+*.tmp
+*.swp
+
+# Environment files
+.env
+.env.local
+*.env.*
+
+# OS generated files
+.DS_Store
+Thumbs.db
 
 # Compiled Java classes
 *.class
 
 # JAR files
 *.jar
+*.war
+*.ear
 
-# ZIP distributions
+# Coverage reports
+coverage/
+htmlcov/
+
+# Python virtual environments
+venv/
+.venv/
+
+# Node.js
+node_modules/
+
+# IDE specific
+*.iml
+*.iws
+*.ipr
+
+# Local configuration overrides
+local.properties
+
+# Plugin distribution
 *.zip
 
-# IDE sandbox
-**/idea-sandbox/
+# Sandbox directories within build
+**/idea-sandbox/**
 
-# Local platform artifacts
-**/.intellijPlatform/
+# Metadata files in build directory
+**/plugins/**
+**/imageCache/**
 
-# Gradle wrapper
-gradle/wrapper/
-
-# Temporary files
-*.tmp
-*.swp
-
-# Lock files
-**/*.lock
-
-# Log files
-*.log
-
-# Cache directories
-**/.cache/
-**/caches/
-
-# Index files
-**/index/
-
-# Plugin metadata
-**/plugins/
-
-# System directories
-**/system/
-
-# Instrumented code
-**/instrumented/
-
-# Reports
-**/reports/
-
-# Temporary build files
-**/tmp/
-
-# Resource files in build
-**/resources/main/META-INF/plugin.xml
-**/resources/test/META-INF/plugin.xml
-
-# Icons in build
-**/icons/
-
-# Searchable options
-**/searchableOptions/
-
-# Metadata files
-**/localPlatformArtifacts/
+# Index related files
+**/index/**
+**/caches/**
+**/system/**
 ```
