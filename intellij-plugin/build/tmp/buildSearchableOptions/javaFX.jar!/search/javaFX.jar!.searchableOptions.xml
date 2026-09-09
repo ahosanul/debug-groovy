@@ -1,41 +1,18 @@
 <options>
   <configurable id="fileTemplates" configurable_name="File and Code Templates">
     <option name="javafxapplication" hit="JavaFXApplication" />
-    <option name="groovy" hit="javafx-HelloApplication-groovy" />
-    <option name="helloapplication" hit="javafx-HelloApplication-groovy" />
-    <option name="javafx" hit="javafx-HelloApplication-groovy" />
-    <option name="helloapplication" hit="javafx-HelloApplication-java" />
-    <option name="java" hit="javafx-HelloApplication-java" />
-    <option name="javafx" hit="javafx-HelloApplication-java" />
-    <option name="helloapplication" hit="javafx-HelloApplication-kotlin" />
-    <option name="javafx" hit="javafx-HelloApplication-kotlin" />
-    <option name="kotlin" hit="javafx-HelloApplication-kotlin" />
-    <option name="groovy" hit="javafx-HelloController-groovy" />
-    <option name="hellocontroller" hit="javafx-HelloController-groovy" />
-    <option name="javafx" hit="javafx-HelloController-groovy" />
-    <option name="hellocontroller" hit="javafx-HelloController-java" />
-    <option name="java" hit="javafx-HelloController-java" />
-    <option name="javafx" hit="javafx-HelloController-java" />
-    <option name="hellocontroller" hit="javafx-HelloController-kotlin" />
-    <option name="javafx" hit="javafx-HelloController-kotlin" />
-    <option name="kotlin" hit="javafx-HelloController-kotlin" />
-    <option name="build" hit="javafx-build" />
-    <option name="javafx" hit="javafx-build" />
-    <option name="gradle" hit="javafx-gradle-wrapper" />
-    <option name="javafx" hit="javafx-gradle-wrapper" />
-    <option name="wrapper" hit="javafx-gradle-wrapper" />
-    <option name="hello" hit="javafx-hello-view" />
-    <option name="javafx" hit="javafx-hello-view" />
-    <option name="view" hit="javafx-hello-view" />
-    <option name="javafx" hit="javafx-maven-wrapper" />
-    <option name="maven" hit="javafx-maven-wrapper" />
-    <option name="wrapper" hit="javafx-maven-wrapper" />
-    <option name="info" hit="javafx-module-info" />
-    <option name="javafx" hit="javafx-module-info" />
-    <option name="module" hit="javafx-module-info" />
-    <option name="javafx" hit="javafx-pom" />
-    <option name="pom" hit="javafx-pom" />
-    <option name="javafx" hit="javafx-settings" />
-    <option name="settings" hit="javafx-settings" />
+    <option name="javafx-helloapplication-groovy" hit="javafx-HelloApplication-groovy" />
+    <option name="javafx-helloapplication-java" hit="javafx-HelloApplication-java" />
+    <option name="javafx-helloapplication-kotlin" hit="javafx-HelloApplication-kotlin" />
+    <option name="javafx-hellocontroller-groovy" hit="javafx-HelloController-groovy" />
+    <option name="javafx-hellocontroller-java" hit="javafx-HelloController-java" />
+    <option name="javafx-hellocontroller-kotlin" hit="javafx-HelloController-kotlin" />
+    <option name="javafx-build" hit="javafx-build" />
+    <option name="javafx-gradle-wrapper" hit="javafx-gradle-wrapper" />
+    <option name="javafx-hello-view" hit="javafx-hello-view" />
+    <option name="javafx-maven-wrapper" hit="javafx-maven-wrapper" />
+    <option name="javafx-module-info" hit="javafx-module-info" />
+    <option name="javafx-pom" hit="javafx-pom" />
+    <option name="javafx-settings" hit="javafx-settings" />
   </configurable>
 </options>

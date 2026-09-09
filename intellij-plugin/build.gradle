@@ -20,7 +20,7 @@ repositories {
 
 dependencies {
     intellijPlatform {
-        intellijIdeaCommunity '2022.3'
+        intellijIdeaCommunity '2024.1'
         bundledPlugin 'com.intellij.java'
         bundledPlugin 'org.intellij.groovy'
         instrumentationTools()

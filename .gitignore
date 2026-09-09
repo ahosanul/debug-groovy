@@ -1,24 +1,70 @@
 ```
-# Dependencies
-target/
-.m2/
+# IntelliJ IDEA specific files
+.intellijPlatform/
+.idea/
+
+# Build and sandbox directories
+build/
+
+# Gradle
 .gradle/
+!gradle/wrapper/gradle-wrapper.jar
 
-# Logs and temp files
+# Log files
 *.log
-*.tmp
 
-# Environment
+# Temporary files
+*.tmp
+*.swp
+
+# Environment files
 .env
 .env.local
 *.env.*
 
-# Editors
-.vscode/
-.idea/
+# OS generated files
+.DS_Store
+Thumbs.db
 
-# Build artifacts
+# Compiled Java classes
 *.class
+
+# JAR files
 *.jar
 *.war
+*.ear
+
+# Coverage reports
+coverage/
+htmlcov/
+
+# Python virtual environments
+venv/
+.venv/
+
+# Node.js
+node_modules/
+
+# IDE specific
+*.iml
+*.iws
+*.ipr
+
+# Local configuration overrides
+local.properties
+
+# Plugin distribution
+*.zip
+
+# Sandbox directories within build
+**/idea-sandbox/**
+
+# Metadata files in build directory
+**/plugins/**
+**/imageCache/**
+
+# Index related files
+**/index/**
+**/caches/**
+**/system/**
 ```

@@ -9,15 +9,12 @@
     <option name="file" hit="File Header" />
     <option name="header" hit="File Header" />
     <option name="concatenation" hit="I18nized Concatenation" />
-    <option name="i" hit="I18nized Concatenation" />
-    <option name="nized" hit="I18nized Concatenation" />
+    <option name="i18nized" hit="I18nized Concatenation" />
     <option name="expression" hit="I18nized Expression" />
-    <option name="i" hit="I18nized Expression" />
-    <option name="nized" hit="I18nized Expression" />
+    <option name="i18nized" hit="I18nized Expression" />
     <option name="expression" hit="I18nized JSP Expression" />
-    <option name="i" hit="I18nized JSP Expression" />
+    <option name="i18nized" hit="I18nized JSP Expression" />
     <option name="jsp" hit="I18nized JSP Expression" />
-    <option name="nized" hit="I18nized JSP Expression" />
     <option name="body" hit="Implemented Method Body" />
     <option name="implemented" hit="Implemented Method Body" />
     <option name="method" hit="Implemented Method Body" />
