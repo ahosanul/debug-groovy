@@ -1,0 +1,15 @@
+<ivy-module version="2.0">
+  <info organisation="bundledPlugin" module="com.intellij.java" revision="2024.1+411"/>
+  <configurations>
+    <conf name="default" visibility="public"/>
+  </configurations>
+  <publications>
+    <artifact name="/root/.gradle/caches/transforms-3/bc242668534f71b7967bcdd6ddb6b2b0/transformed/ideaIC-2024.1/plugins/java" type="directory" conf="default"/>
+  </publications>
+  <dependencies>
+    <dependency org="bundledPlugin" name="com.intellij.copyright" rev="241.14494.240+582"/>
+    <dependency org="bundledPlugin" name="com.intellij.platform.images" rev="241.14494.240+897"/>
+    <dependency org="bundledPlugin" name="training" rev="241.14494.240+959"/>
+    <dependency org="bundledPlugin" name="com.jetbrains.performancePlugin" rev="241.14494.240+929"/>
+  </dependencies>
+</ivy-module>

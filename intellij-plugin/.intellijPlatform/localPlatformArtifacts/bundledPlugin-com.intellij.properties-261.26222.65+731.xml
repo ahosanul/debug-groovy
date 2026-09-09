@@ -1,0 +1,10 @@
+<ivy-module version="2.0">
+  <info organisation="bundledPlugin" module="com.intellij.properties" revision="261.26222.65+731"/>
+  <configurations>
+    <conf name="default" visibility="public"/>
+  </configurations>
+  <publications>
+    <artifact name="/root/.gradle/caches/transforms-3/ea89acf81b65d42ebad1656b0b53d438/transformed/ideaIU-2026.1.4/plugins/properties" type="directory" conf="default"/>
+  </publications>
+  <dependencies/>
+</ivy-module>

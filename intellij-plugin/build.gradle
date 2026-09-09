@@ -1,14 +1,14 @@
 plugins {
     id 'java'
-    id 'org.jetbrains.intellij.platform' version '2.0.1'
+    id 'org.jetbrains.intellij.platform' version '2.2.1'
 }
 
 group = 'cool.request'
 version = '1.0.0'
 
 java {
-    sourceCompatibility = JavaVersion.VERSION_11
-    targetCompatibility = JavaVersion.VERSION_11
+    sourceCompatibility = JavaVersion.VERSION_21
+    targetCompatibility = JavaVersion.VERSION_21
 }
 
 repositories {
@@ -20,7 +20,7 @@ repositories {
 
 dependencies {
     intellijPlatform {
-        intellijIdeaCommunity '2024.1'
+        intellijIdeaUltimate '2026.1.4'
         bundledPlugin 'com.intellij.java'
         bundledPlugin 'org.intellij.groovy'
         instrumentationTools()
