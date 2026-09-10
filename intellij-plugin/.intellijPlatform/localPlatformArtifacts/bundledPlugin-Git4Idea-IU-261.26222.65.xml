@@ -1,0 +1,22 @@
+<ivy-module version="2.0">
+  <info organisation="bundledPlugin" module="Git4Idea" revision="IU-261.26222.65"/>
+  <configurations>
+    <conf name="default" visibility="public"/>
+  </configurations>
+  <publications>
+    <artifact name="vcs-git-frontend" ext="jar" conf="default" url="plugins/vcs-git/lib"/>
+    <artifact name="git4idea-rt" ext="jar" conf="default" url="plugins/vcs-git/lib"/>
+    <artifact name="vcs-git" ext="jar" conf="default" url="plugins/vcs-git/lib"/>
+    <artifact name="intellij.vcs.git.terminal" ext="jar" conf="default" url="plugins/vcs-git/lib/modules"/>
+    <artifact name="intellij.vcs.git.localHistory" ext="jar" conf="default" url="plugins/vcs-git/lib/modules"/>
+    <artifact name="intellij.vcs.git.frontend" ext="jar" conf="default" url="plugins/vcs-git/lib/modules"/>
+    <artifact name="intellij.vcs.git.coverage" ext="jar" conf="default" url="plugins/vcs-git/lib/modules"/>
+  </publications>
+  <dependencies>
+    <dependency org="bundledPlugin" name="com.jetbrains.performancePlugin" rev="IU-261.26222.65"/>
+    <dependency org="bundledModule" name="intellij.platform.vcs.dvcs" rev="IU-261.26222.65"/>
+    <dependency org="bundledModule" name="intellij.platform.vcs.log.graph.impl" rev="IU-261.26222.65"/>
+    <dependency org="bundledModule" name="intellij.platform.collaborationTools" rev="IU-261.26222.65"/>
+    <dependency org="bundledModule" name="intellij.platform.ide.impl.wsl" rev="IU-261.26222.65"/>
+  </dependencies>
+</ivy-module>
