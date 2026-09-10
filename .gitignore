@@ -1,34 +1,40 @@
 ```
 # Build artifacts
-build/
-.gradle/
+intellij-plugin/build/
+intellij-plugin/build/reports/
+intellij-plugin/build/tmp/
 
-# IntelliJ IDEA
+# Compiled files
+*.class
+*.jar
+*.war
+*.ear
+*.zip
+*.tar
+*.gz
+
+# Dependencies
+.gradle/
+node_modules/
+target/
+
+# IDE files
 .idea/
 *.iml
-*.iws
 *.ipr
+*.iws
+.vscode/
 
 # Logs
 *.log
 
-# Temporary files
-*.tmp
-*.swp
-
-# Environment files
+# Environment
 .env
 .env.local
 *.env.*
 
-# Coverage reports
-coverage/
-htmlcov/
-
-# OS generated files
-.DS_Store
-Thumbs.db
-
-# Original rules preserved
-*.log
+# Temp files
+*.tmp
+*.temp
+*~
 ```
