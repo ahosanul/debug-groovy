@@ -1,9 +1,9 @@
 Created-By: Gradle 8.5
 Version: 1.0.0
-Build-JVM: 17.0.20 (Debian 17.0.20+8-1-deb12u1-Debian)
+Build-JVM: 21.0.12.1 (Oracle Corporation 21.0.12.1+1-LTS-4)
 Build-OS: Linux 4.19.91-c8dfc93.al7.x86_64 amd64
 Build-Plugin: IntelliJ Platform Gradle Plugin
-Build-Plugin-Version: 2.0.1
+Build-Plugin-Version: 2.2.1
 Platform-Type: IU
 Platform-Version: 2026.1.4
 Platform-Build: 261.26222.65

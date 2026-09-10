@@ -4,15 +4,7 @@
   <name>Cool Request for Grails</name>
   <version>1.0.0</version>
   <vendor email="support@coolrequest.dev" url="https://coolrequest.dev">Cool Request</vendor>
-  <description><![CDATA[IntelliJ IDEA plugin for testing Grails 2.5.3 controllers and endpoints directly from the IDE.
-    
-    Features:
-    - Tool Window showing all discovered controllers and endpoints
-    - Run icons next to controller methods for quick testing
-    - Parameter input dialog with type detection
-    - HTTP request execution with response viewer
-    - No project configuration required
-    ]]><![CDATA[IntelliJ IDEA plugin for testing Grails 2.5.3 endpoints directly from the IDE]]></description>
+  <description><![CDATA[IntelliJ IDEA plugin for testing Grails 2.5.3 endpoints directly from the IDE]]></description>
   <depends>com.intellij.modules.platform</depends>
   <depends>org.jetbrains.plugins.groovy</depends>
   <depends>com.intellij.modules.java</depends>
