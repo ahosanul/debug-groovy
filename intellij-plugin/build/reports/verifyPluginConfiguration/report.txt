@@ -1,1 +1,0 @@
-- The Java configuration specifies sourceCompatibility='17' but IntelliJ Platform '2026.1.4' requires sourceCompatibility='21'.
